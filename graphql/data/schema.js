@@ -24,7 +24,7 @@ type Groups {
 # the schema allows the following query:
 type Query {
   hero(name: String): Hero
-  Unit(name: String): Unit
+  unit(name: String): Unit
 }
 schema {
   query: Query
