@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "React Redux client side only",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server --hot --inline",
+    "knex": "knex"
   },
   "keywords": [
     "react",
@@ -33,5 +34,9 @@
       "es2015",
       "react"
     ]
+  },
+  "dependencies": {
+    "knex": "^0.12.6",
+    "sqlite3": "^3.1.8"
   }
 }

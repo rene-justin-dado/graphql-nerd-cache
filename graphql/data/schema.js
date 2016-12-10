@@ -2,8 +2,7 @@ const typeDefinitions = `
 type Hero {
   id: Int!
   name: String!
-  race: String
-  Affiliations: String
+  Affiliations: [Groups]
 }
 type Unit {
   id: Int!
@@ -17,10 +16,12 @@ type Abilities {
   id: Int!
   name: String!
 }
-type Race {
+type Groups {
   name: String!
+  race: String
 }
 
+# the schema allows the following query:
 type Query {
   hero(name: String): Hero
   Unit(name: String): Unit
