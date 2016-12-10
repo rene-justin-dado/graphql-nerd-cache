@@ -1,8 +1,9 @@
 import express from 'express'
-
 import { apolloExpress, grapiqlExpress } from 'apollo-server'
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools'
 import bodyParser from 'body-parser'
+import Schema from './data/schema'
+import Resolvers from './data/resolvers'
 
 const GRAPHQL_PORT = 2876
 
