@@ -15,3 +15,18 @@ const UnitModel = db.define('unit', {
   weapon: { type: Sequelize.STRING },
   armor: { type: Sequelize.STRING }
 })
+
+const RaceModel = db.define('race', {
+  name: { type: Sequelize.STRING }
+})
+
+HeroModel.hasOne(RaceModel)
+UnitModel.hasOne(RaceModel)
+RaceModel.belongsToMany(HeroModel, {through: 'HeroRace'})
+RaceModel.belongsToMany(UnitModel, {through: 'UnitRace'})
+
+const Hero = db.models.hero
+const Unit = db.models.unit
+const Race = db.models.race
+
+export { Hero, Race, Unit }
