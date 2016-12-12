@@ -36,7 +36,10 @@
     ]
   },
   "dependencies": {
+    "apollo-client": "^0.5.18",
+    "babel-preset-react-native": "^1.9.0",
     "knex": "^0.12.6",
+    "react-apollo": "^0.7.1",
     "sqlite3": "^3.1.8"
   }
 }
