@@ -1,5 +1,5 @@
 import express from 'express'
-import { apolloExpress, grapiqlExpress } from 'apollo-server'
+import { apolloExpress, graphiqlExpress } from 'apollo-server'
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools'
 import bodyParser from 'body-parser'
 import Schema from './data/schema'
@@ -16,7 +16,7 @@ const executableSchema = makeExecutableSchema({
   printErrors: true
 })
 
-graphQLServer.use('/graphql', bodyParse.json(), apolloExpress({
+graphQLServer.use('/graphql', bodyParser.json(), apolloExpress({
   schema: executableSchema,
   context: {}
 }))
@@ -26,5 +26,5 @@ graphQLServer.use('/graphiql', graphiqlExpress({
 }))
 
 graphQLServer.listen(GRAPHQL_PORT, () => console.log(
-  `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}/graphql`
+  `GraphQL Server is now running on http://localhost:${GRAPHQL_PORT}/graphiql`
 ))
