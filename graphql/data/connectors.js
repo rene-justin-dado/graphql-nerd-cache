@@ -11,7 +11,7 @@ const HeroModel = db.define('hero', {
 
 const UnitModel = db.define('unit', {
   name: { type: Sequelize.STRING },
-  race: { type: Sequelize.STRING },
+  faction: { type: Sequelize.STRING },
   weapon: { type: Sequelize.STRING },
   armor: { type: Sequelize.STRING }
 })
