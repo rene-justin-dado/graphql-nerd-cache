@@ -4,13 +4,13 @@ type Hero {
   id: Int!
   # A hero's name or alias.
   name: String!
-  race: [Race]
+  race: String
 }
 # A combat unit from the tumultuous Koprulu sector.
 type Unit {
   id: Int!
   name: String!
-  race: [Race]
+  race: String
   weapon: String
   armor: String
   abilities: [Abilities]
@@ -19,11 +19,6 @@ type Unit {
 type Abilities {
   id: Int!
   name: String!
-}
-# Terran, Protoss or Zerg.
-type Race {
-  name: String!
-  race: String
 }
 
 # You can search Heroes and Units:
