@@ -18,7 +18,7 @@ type Unit {
 # A unit's or hero's special abilities in-game.
 type Abilities {
   id: Int!
-  name: String!
+  abilities: Array!
 }
 
 # You can search Heroes and Units:
@@ -30,5 +30,4 @@ schema {
   query: Query
 }
 `
-
 export default [typeDefinitions]
