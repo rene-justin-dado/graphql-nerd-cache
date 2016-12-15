@@ -18,7 +18,7 @@ type Unit {
 # A unit's or hero's special abilities in-game.
 type Abilities {
   id: Int!
-  abilities: Array!
+  abilities: String!
 }
 
 # You can search Heroes and Units:
