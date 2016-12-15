@@ -59,6 +59,5 @@ db.sync({ force: true })
 
 const Hero = db.models.hero
 const Unit = db.models.unit
-const Race = db.models.race
 
-export { Hero, Race, Unit }
+export { Hero, Unit }
