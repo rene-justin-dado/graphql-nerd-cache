@@ -5,7 +5,7 @@ import bodyParser from 'body-parser'
 import Schema from './data/schema'
 import Resolvers from './data/resolvers'
 
-const GRAPHQL_PORT = 2876
+const GRAPHQL_PORT = 8080
 
 const graphQLServer = express()
 
