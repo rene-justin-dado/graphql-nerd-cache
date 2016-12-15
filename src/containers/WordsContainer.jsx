@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 
-import Words from '../components/Words'
+import WordsWithData from '../components/Words'
 
 const mapStateToProps = (state) => {
   return {
@@ -10,4 +10,4 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps
-)(Words)
+)(WordsWithData)
