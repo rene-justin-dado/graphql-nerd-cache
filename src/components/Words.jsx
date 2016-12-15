@@ -1,6 +1,19 @@
 import React, {PropTypes} from 'react'
+import {graphql} from 'react-apollo'
+import gql from 'graphql-tag'
 
 import Word from './Word'
+
+const Data = graphql(Zeratul)()
+const Zeratul = gql`
+query Zeratul {
+  hero(name:"Zeratul") {
+    id
+    name
+    race
+  }
+}
+`
 
 const Words = ({words}) => (
   <div>
