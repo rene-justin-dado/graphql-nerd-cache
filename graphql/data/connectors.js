@@ -1,4 +1,6 @@
 import Sequelize from 'sequelize'
+import _ from 'lodash'
+import casual from 'casual'
 
 const db = new Sequelize('starcraft', null, null, {
   dialect: 'sqlite',
@@ -31,19 +33,17 @@ UnitModel.hasOne(RaceModel)
 RaceModel.belongsToMany(HeroModel, {through: 'HeroRace'})
 RaceModel.belongsToMany(UnitModel, {through: 'UnitRace'})
 
-db.sync({force:true, match: /starcraft$/})
-  .then(() => {
-    () => HeroModel.create({
-      id: 1,
+casual.seed(123)
+db.sync({ force: true })
+  .then(() => HeroModel.create({
       name: "Zeratul"
-    })
-  })
-  .then(() => {
-    () => HeroModel.create({
-      id: 2,
+    }))
+  .then(() => HeroModel.create({
+      name: "Alexei Stukov"
+    }))
+  .then(() => HeroModel.create({
       name: "James Raynor"
-    })
-  })
+    }))
 
 const Hero = db.models.hero
 const Unit = db.models.unit

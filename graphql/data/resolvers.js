@@ -1,4 +1,4 @@
-import { Hero, Race, Unit } from './connectors'
+import { Hero, Unit } from './connectors'
 const resolvers = {
   Query: {
     hero(_, args) {
