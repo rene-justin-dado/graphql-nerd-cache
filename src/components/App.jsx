@@ -2,6 +2,7 @@ import React from 'react'
 
 import AddWord from './AddWord'
 import WordsContainer from '../containers/WordsContainer'
+import StarcraftHeroesContainer from '../containers/StarcraftHeroesContainer'
 
 export default React.createClass({
   render () {
@@ -9,6 +10,9 @@ export default React.createClass({
       <div className='app-container'>
         <WordsContainer />
         <AddWord />
+        <br/>
+        <br/>
+        <StarcraftHeroesContainer />
       </div>
     )
   }
