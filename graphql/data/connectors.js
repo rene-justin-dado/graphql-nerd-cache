@@ -6,7 +6,8 @@ const db = new Sequelize('starcraft', null, null, {
 })
 
 const HeroModel = db.define('hero', {
-  name: { type: Sequelize.STRING }
+  name: { type: Sequelize.STRING },
+  race: { type: Sequelize.STRING }
 }, {
   freezeTableName: true
 })
