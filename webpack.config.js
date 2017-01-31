@@ -1,12 +1,14 @@
+require('whatwg-fetch')
+
 module.exports = {
-  entry: './src/index.js',
+  entry: ['whatwg-fetch', './src/index.js'],
   output: {
     path: `${__dirname}/src/public`,
     filename: 'bundle.js'
   },
   module: {
     loaders: [
-      { loader: 'babel-loader?cacheDirectory', test: /\.jsx?$/, exclude: 'node_modules' }
+      { loader: 'babel-loader', test: /\.jsx?$/, exclude: 'node_modules' }
     ]
   },
   resolve: {
