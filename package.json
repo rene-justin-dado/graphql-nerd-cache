@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "React Redux client side only",
   "scripts": {
-    "dev-server": "webpack-dev-server --hot --inline",
+    "dev-server": "webpack-dev-server --hot --inline --display-error-details",
     "build": "webpack --watch",
     "nodemon": "nodemon ./graphql/server.js --exec babel-node",
     "knex": "knex"
@@ -44,12 +44,14 @@
     "apollo-server": "^0.3.3",
     "babel-preset-react-native": "^1.9.0",
     "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
     "graphql": "^0.8.2",
     "graphql-tag": "^1.1.2",
     "graphql-tools": "^0.8.3",
     "knex": "^0.12.6",
     "react-apollo": "^0.7.1",
     "sequelize": "^3.27.0",
-    "sqlite3": "^3.1.8"
+    "sqlite3": "^3.1.8",
+    "whatwg-fetch": "^2.0.2"
   }
 }
