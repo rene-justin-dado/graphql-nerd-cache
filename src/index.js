@@ -10,7 +10,7 @@ import reducers from './reducers'
 import App from './components/App'
 
 const client = new ApolloClient({
-  networkInterface: createNetworkInterface({uri: 'http://localhost:3000/graphiql/'})
+  networkInterface: createNetworkInterface({uri: 'http://localhost:3000/graphql'})
 })
 let store = createStore(
   reducers,

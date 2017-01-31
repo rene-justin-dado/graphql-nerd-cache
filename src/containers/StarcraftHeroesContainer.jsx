@@ -8,6 +8,7 @@ const Query = gql`
     hero(name:"Zeratul") {
       id
       name
+      race
     }
   }
 `

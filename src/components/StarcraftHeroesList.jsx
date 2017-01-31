@@ -7,12 +7,14 @@ export default React.createClass({
   render () {
     const hero = this.props.data.hero
     const loading = this.props.data.loading
-    console.log(this.props.data)
+
     return (
       <div>
-        {loading ?
-          <h1>Loading. Please wait...</h1> :
-          <h1>{hero.name}</h1>}
+        {loading ? <h1>Loading. Please wait...</h1> :
+          <div>
+            <h1>{hero.name}</h1>
+            <p>{hero.race}</p>
+          </div>}
       </div>
     )
   }
