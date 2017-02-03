@@ -1,27 +1,28 @@
 import Sequelize from 'sequelize'
 
-const db = new Sequelize('starcraft', null, null, {
-  dialect: 'sqlite',
-  storage: './starcraft.sqlite'
+const db = new Sequelize('starcraft', 'postgres', 'n@chNagala$', {
+  dialect: 'postgres',
+  pool: {
+    max: 10,
+    min: 0,
+    idle: 10000
+  }
+  // storage: './starcraft.sqlite'
 })
 
 const HeroModel = db.define('hero', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
   name: { type: Sequelize.STRING },
   race: { type: Sequelize.STRING }
 }, {
   freezeTableName: true
 })
 
-const UnitModel = db.define('unit', {
-  name: { type: Sequelize.STRING },
-  race: { type: Sequelize.STRING },
-  weapon: { type: Sequelize.STRING },
-  armor: { type: Sequelize.STRING }
-}, {
-  freezeTableName: true
-})
-
-db.sync({ force: true })
+HeroModel.sync({ force: true })
   .then(() => HeroModel.create({
     id: 1,
     name: 'Zeratul',
@@ -38,25 +39,56 @@ db.sync({ force: true })
     race: 'Terran'
   }))
 
-db.sync({ force: true })
+const UnitModel = db.define('unit', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  name: { type: Sequelize.STRING },
+  race: { type: Sequelize.STRING },
+  weapon: { type: Sequelize.STRING },
+  armor: { type: Sequelize.STRING }
+}, {
+  freezeTableName: true
+})
+
+UnitModel.sync({ force: true })
   .then(() => UnitModel.create({
+    id: 9991,
     name: 'SCV',
     race: 'Terran',
     weapon: 'Fusion Cutter',
     armor: 'Neosteel Frame/Unarmored Pilot'
   }))
   .then(() => UnitModel.create({
+    id: 9992,
     name: 'Probe',
     race: 'Protoss',
     weapon: 'Particle Beam',
     armor: 'Protoss Armor and Shields'
   }))
   .then(() => UnitModel.create({
+    id: 9993,
     name: 'Drone',
     race: 'Zerg',
     weapon: 'Claws',
     armor: 'Zerg Carapace'
   }))
+
+const AbilitiesModel = db.define('abilities', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  name: { type: Sequelize.STRING },
+  race: { type: Sequelize.STRING },
+  weapon: { type: Sequelize.STRING },
+  armor: { type: Sequelize.STRING }
+}, {
+  freezeTableName: true
+})
 
 const Hero = db.models.hero
 const Unit = db.models.unit
