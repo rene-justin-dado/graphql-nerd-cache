@@ -82,13 +82,18 @@ const AbilitiesModel = db.define('abilities', {
     autoIncrement: true,
     primaryKey: true
   },
-  name: { type: Sequelize.STRING },
-  race: { type: Sequelize.STRING },
-  weapon: { type: Sequelize.STRING },
-  armor: { type: Sequelize.STRING }
+  ability: { type: Sequelize.STRING }
 }, {
   freezeTableName: true
 })
+
+AbilitiesModel.sync({ force: true })
+  .then(() => AbilitiesModel.create({
+    ability: 'Build'
+  }))
+  .then(() => AbilitiesModel.create({
+    ability: 'Repair'
+  }))
 
 const Hero = db.models.hero
 const Unit = db.models.unit
