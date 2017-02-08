@@ -53,6 +53,21 @@ const UnitModel = db.define('unit', {
   freezeTableName: true
 })
 
+const AbilitiesModel = db.define('abilities', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    primaryKey: true
+  },
+  ability: { type: Sequelize.STRING },
+  abilityId: { type: Sequelize.INTEGER }
+}, {
+  freezeTableName: true
+})
+
+UnitModel.AbilitiesModel = UnitModel.hasMany(AbilitiesModel, {as: 'abilities'})
+AbilitiesModel.UnitModel = AbilitiesModel.belongsTo(UnitModel, {through: UnitModel})
+
 UnitModel.sync({ force: true })
   .then(() => UnitModel.create({
     id: 9991,
@@ -60,40 +75,35 @@ UnitModel.sync({ force: true })
     race: 'Terran',
     weapon: 'Fusion Cutter',
     armor: 'Neosteel Frame/Unarmored Pilot'
-  }))
+  }), {
+    include: [UnitModel.AbilitiesModel]
+  })
   .then(() => UnitModel.create({
     id: 9992,
     name: 'Probe',
     race: 'Protoss',
     weapon: 'Particle Beam',
     armor: 'Protoss Armor and Shields'
-  }))
+  }), {
+    include: [UnitModel.AbilitiesModel]
+  })
   .then(() => UnitModel.create({
     id: 9993,
     name: 'Drone',
     race: 'Zerg',
     weapon: 'Claws',
     armor: 'Zerg Carapace'
-  }))
+  }), {
+    include: [UnitModel.AbilitiesModel]
+  })
 
-const AbilitiesModel = db.define('abilities', {
-  id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
-    primaryKey: true
-  },
-  ability: { type: Sequelize.STRING }
-}, {
-  freezeTableName: true
-})
-
-AbilitiesModel.sync({ force: true })
-  .then(() => AbilitiesModel.create({
-    ability: 'Build'
-  }))
-  .then(() => AbilitiesModel.create({
-    ability: 'Repair'
-  }))
+// AbilitiesModel.sync({ force: true })
+//   .then(() => AbilitiesModel.create({
+//     ability: 'Build'
+//   }))
+//   .then(() => AbilitiesModel.create({
+//     ability: 'Repair'
+//   }))
 
 const Hero = db.models.hero
 const Unit = db.models.unit

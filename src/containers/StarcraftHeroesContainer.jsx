@@ -4,11 +4,17 @@ import gql from 'graphql-tag'
 import StarcraftHeroesList from '../components/StarcraftHeroesList'
 
 const Query = gql`
-  query Hero {
+  query HeroAndUnit {
     hero(name:"Zeratul") {
       id
       name
       race
+    }
+    unit(name:"SCV") {
+      id
+      name
+      race
+      weapon
     }
   }
 `

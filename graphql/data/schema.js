@@ -19,6 +19,7 @@ type Unit {
 type Abilities {
   id: Int!
   ability: String!
+  abilityId: Int
 }
 
 # You can search Heroes and Units:
