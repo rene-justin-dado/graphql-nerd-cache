@@ -9,6 +9,7 @@ type Hero {
 # A combat unit from the tumultuous Koprulu sector.
 type Unit {
   id: Int!
+  unitAbilityId: Int
   name: String!
   race: String
   weapon: String
@@ -19,7 +20,6 @@ type Unit {
 type Abilities {
   id: Int!
   ability: String!
-  abilityId: Int
 }
 
 # You can search Heroes and Units:
