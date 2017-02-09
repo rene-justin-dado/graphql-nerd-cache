@@ -53,59 +53,60 @@ const UnitModel = db.define('unit', {
   freezeTableName: true
 })
 
-const AbilitiesModel = db.define('abilities', {
+const AbilityModel = db.define('ability', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true
   },
   ability: { type: Sequelize.STRING },
-  abilityId: { type: Sequelize.INTEGER }
+  unitAbility: { type: Sequelize.INTEGER }
 }, {
   freezeTableName: true
 })
 
-UnitModel.AbilitiesModel = UnitModel.hasMany(AbilitiesModel, {as: 'abilities'})
-AbilitiesModel.UnitModel = AbilitiesModel.belongsTo(UnitModel, {through: UnitModel})
+AbilityModel.sync({ force: true })
+  .then(() => AbilityModel.create({
+    ability: 'Build',
+    unitAbility: 9991
+  }))
+  .then(() => AbilityModel.create({
+    ability: 'Build',
+    unitAbility: 9992
+  }))
+  .then(() => AbilityModel.create({
+    ability: 'Build',
+    unitAbility: 9993
+  }))
+  .then(() => AbilityModel.create({
+    ability: 'Repair',
+    unitAbility: 9991
+  }))
 
 UnitModel.sync({ force: true })
-  .then(() => UnitModel.create({
-    id: 9991,
-    name: 'SCV',
-    race: 'Terran',
-    weapon: 'Fusion Cutter',
-    armor: 'Neosteel Frame/Unarmored Pilot'
-  }), {
-    include: [UnitModel.AbilitiesModel]
-  })
-  .then(() => UnitModel.create({
-    id: 9992,
-    name: 'Probe',
-    race: 'Protoss',
-    weapon: 'Particle Beam',
-    armor: 'Protoss Armor and Shields'
-  }), {
-    include: [UnitModel.AbilitiesModel]
-  })
-  .then(() => UnitModel.create({
-    id: 9993,
-    name: 'Drone',
-    race: 'Zerg',
-    weapon: 'Claws',
-    armor: 'Zerg Carapace'
-  }), {
-    include: [UnitModel.AbilitiesModel]
-  })
+.then(() => UnitModel.create({
+  id: 9991,
+  name: 'SCV',
+  race: 'Terran',
+  weapon: 'Fusion Cutter',
+  armor: 'Neosteel Frame/Unarmored Pilot'
+}))
+.then(() => UnitModel.create({
+  id: 9992,
+  name: 'Probe',
+  race: 'Protoss',
+  weapon: 'Particle Beam',
+  armor: 'Protoss Armor and Shields'
+}))
+.then(() => UnitModel.create({
+  id: 9993,
+  name: 'Drone',
+  race: 'Zerg',
+  weapon: 'Claws',
+  armor: 'Zerg Carapace'
+}))
 
-// AbilitiesModel.sync({ force: true })
-//   .then(() => AbilitiesModel.create({
-//     ability: 'Build'
-//   }))
-//   .then(() => AbilitiesModel.create({
-//     ability: 'Repair'
-//   }))
+UnitModel.belongsTo(AbilityModel, {as: 'unitAbility'})
 
-const Hero = db.models.hero
-const Unit = db.models.unit
-
-export { Hero, Unit }
+export const Hero = db.models.hero
+export const Unit = db.models.unit
