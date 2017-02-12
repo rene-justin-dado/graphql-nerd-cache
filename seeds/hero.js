@@ -10,11 +10,23 @@ exports.seed = function(knex, Promise) {
           race: 'Terran'
         }),
         knex('hero').insert({
+          name: 'Matt Horner',
+          race: 'Terran'
+        }),
+        knex('hero').insert({
           name: 'Alarak',
           race: 'Protoss'
         }),
         knex('hero').insert({
+          name: 'Vorazun',
+          race: 'Protoss'
+        }),
+        knex('hero').insert({
           name: 'Dehaka',
+          race: 'Zerg'
+        }),
+        knex('hero').insert({
+          name: 'Kerrigan',
           race: 'Zerg'
         })
       ])
