@@ -1,11 +1,12 @@
 import { Hero, Unit } from './connectors'
+
 const resolvers = {
   Query: {
     hero(_, args) {
-      return Hero.find()
+      return Hero(args.name)
     },
     unit(_, args) {
-      return Unit.find()
+      return Unit(args.name)
     }
   }
 }
