@@ -5,7 +5,7 @@ import StarcraftHeroesList from '../components/StarcraftHeroesList'
 
 const Query = gql`
   query Hero {
-    hero(name:"Zeratul") {
+    hero(name:"Kerrigan") {
       id
       name
       race
