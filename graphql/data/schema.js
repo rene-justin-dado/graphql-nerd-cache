@@ -1,14 +1,14 @@
 const typeDefinitions = `
 # An Epic hero from the Starcraft universe.
 type Hero {
-  id: Int!
+  id: Int
   # A hero's name or alias.
   name: String!
   race: String
 }
 # A combat unit from the tumultuous Koprulu sector.
 type Unit {
-  id: Int!
+  id: Int
   name: String!
   race: String
   weapon: String
