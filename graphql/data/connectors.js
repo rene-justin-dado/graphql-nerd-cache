@@ -1,18 +1,20 @@
 const config = require('../../knexfile.js')[process.env.NODE_ENV || 'development'],
       knex = require('knex')(config)
 
-export const Hero = (name) => (
-  knex('hero')
-    .where({ name })
-    .then(heroesArray => heroesArray[0])
-    .then(namedHero => namedHero)
-    .catch(err => console.error(err))
-)
+export const Hero = (name) => {
+  let heroId = null
+  return (
+    knex('hero')
+      .where({ name })
+      .then(namedHero => namedHero[0])
+      .catch(err => console.error(err))
+  )
+}
 
 export const Unit = (name) => (
   knex('unit')
     .where({ name })
-    .join('abilities', 'unit.id', '=', 'unit_id')
+    .leftJoin('abilities', 'unit.id', '=', 'unit_id')
     .select()
     .then(unitsArray => {
       let abilities = []
@@ -28,7 +30,6 @@ export const Unit = (name) => (
         abilities: abilities
       }
     })
-    // .then(data => console.log(data))
     .then(namedUnit => namedUnit)
     .catch(err => console.error(err))
 )
