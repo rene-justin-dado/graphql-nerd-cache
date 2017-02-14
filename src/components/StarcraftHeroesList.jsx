@@ -14,6 +14,13 @@ export default React.createClass({
           <div>
             <h1>{hero.name}</h1>
             <p>{hero.race}</p>
+
+            <h1>{unit.name}</h1>
+            <ul>
+              <li>{unit.race}</li>
+              <li>{unit.weapon}</li>
+              <li>{unit.armor}</li>
+            </ul>
           </div>}
       </div>
     )
