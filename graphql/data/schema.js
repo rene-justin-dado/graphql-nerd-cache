@@ -25,6 +25,7 @@ type Abilities {
 type Query {
   hero(name: String): Hero
   unit(name: String): Unit
+  heroes: [Hero]
 }
 schema {
   query: Query

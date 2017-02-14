@@ -11,6 +11,14 @@ export const Hero = (name) => {
   )
 }
 
+export const Heroes = () => {
+  return (
+    knex('hero')
+      .then(heroArray => heroArray)
+      .catch(err => console.error(err))
+  )
+}
+
 export const Unit = (name) => (
   knex('unit')
     .where({ name })
