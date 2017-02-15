@@ -3,7 +3,7 @@ import gql from 'graphql-tag'
 
 import StarcraftHeroesList from '../components/StarcraftHeroesList'
 
-const Query = gql`
+const Generic = gql`
   query Hero {
     hero(name:"Kerrigan") {
       name
@@ -17,5 +17,14 @@ const Query = gql`
     }
   }
 `
+const Heroes = gql`
+  query Heroes {
+    heroes {
+      name
+      race
+    }
+  }
+`
 
-export default graphql(Query)(StarcraftHeroesList)
+// export default genericQuery = graphql(Generic)(StarcraftHeroesList)
+export default graphql(Heroes)(StarcraftHeroesList)
