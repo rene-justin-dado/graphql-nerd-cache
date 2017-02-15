@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "React Redux client side only",
   "scripts": {
-    "dev-server": "webpack-dev-server --hot --inline --display-error-details",
+    "devserver": "webpack-dev-server --hot --inline --display-error-details --open --content-base src/public",
     "build": "webpack --watch",
     "nodemon": "nodemon ./graphql/server.js --exec babel-node",
     "knex": "knex"
