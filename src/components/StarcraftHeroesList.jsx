@@ -13,9 +13,6 @@ export default React.createClass({
       width = 1000,
       barWidth = 80
 
-    // const x = d3.scaleOrdinal()
-    //             .range([0, width, 0.1])
-    //             .domain()
     const y = d3.scaleLinear()
                 .domain([0, d3.max(heroValues)])
                 .range([200, 0])
@@ -40,24 +37,7 @@ export default React.createClass({
        .text((d) => d.name)
   },
   render () {
-    const heroes = this.props.data.heroes
-    const unit = this.props.data.unit
     const loading = this.props.data.loading
-
-    // <div>
-    //   {loading ? <h1>Loading. Please wait...</h1> :
-    //     <div className="data">
-    //       <h1>{heroes.name}</h1>
-    //       <p>{heroes.race}</p>
-    //
-    //       <h1>{unit.name}</h1>
-    //       <ul>
-    //         <li>{unit.race}</li>
-    //         <li>{unit.weapon}</li>
-    //         <li>{unit.armor}</li>
-    //       </ul>
-    //     </div>}
-    //   </div>
     return (
       <svg className="chart">{loading ? <h1>Loading. Please wait...</h1> : this.d3()}</svg>
     )
