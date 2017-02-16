@@ -5,6 +5,7 @@ type Hero {
   # A hero's name or alias.
   name: String!
   race: String
+  charValue: Int
 }
 # A combat unit from the tumultuous Koprulu sector.
 type Unit {
