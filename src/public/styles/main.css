@@ -10,3 +10,13 @@ button {
   height: 2rem;
   border-radius: 50%;
 }
+
+.chart rect {
+  fill: teal;
+}
+
+.chart text {
+  fill: white;
+  font: 1rem;
+  text-anchor: start;
+}
