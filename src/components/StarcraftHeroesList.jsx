@@ -9,10 +9,13 @@ export default React.createClass({
     let heroValues = []
     const heroes = this.props.data.heroes
     heroes.forEach((val) => heroValues.push(val.charValue))
-    const height = 100,
+    const height = 200,
       width = 1000,
       barWidth = 80
 
+    // const x = d3.scaleOrdinal()
+    //             .range([0, width, 0.1])
+    //             .domain()
     const y = d3.scaleLinear()
                 .domain([0, d3.max(heroValues)])
                 .range([200, 0])
@@ -22,19 +25,19 @@ export default React.createClass({
     chart.append("title")
       .html("Narrative Significance of Starcraft Characters")
     const bar = chart.selectAll('g')
-                       .data(heroValues)
+                       .data(heroes)
                      .enter().append('g')
                        .attr('transform', (d, i) => `translate(${i * barWidth}, 0)`)
     bar.append("rect")
-     .attr('y', (d) => y(d))
+     .attr('y', (d) => y(d.charValue))
      .attr("width", barWidth - 1)
-     .attr("height", (d) => height - y(d))
+     .attr("height", (d) => height - y(d.charValue))
 
     bar.append("text")
        .attr("x", barWidth / 6)
-       .attr("y",  (d) => y(d) + 5)
+       .attr("y",  (d) => y(d.charValue) + 5)
        .attr("dy", ".75em")
-       .text((d, i) => heroes[i].name)
+       .text((d) => d.name)
   },
   render () {
     const heroes = this.props.data.heroes
