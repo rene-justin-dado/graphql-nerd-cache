@@ -1,40 +1,42 @@
 import React, {PropTypes} from 'react'
+import * as d3 from 'd3'
 
 export default React.createClass({
   propTypes: {
     data: PropTypes.object.isRequired
   },
   d3 () {
+    let heroValues = []
     const heroes = this.props.data.heroes
-    const width = 420,
-          barHeight = 20
-    console.log(heroes)
-    const x = d3.scaleLinear()
-                .domain([0, 30])
-                .range([0, width])
-    const chart = d3.select('.data')
+    heroes.forEach((val) => heroValues.push(val.charValue))
+    const height = 100,
+      width = 1000,
+      barWidth = 80
+
+    const y = d3.scaleLinear()
+                .domain([0, d3.max(heroValues)])
+                .range([200, 0])
+    const chart = d3.select('.chart')
                     .attr('width', width)
-                    .attr('height', barHeight * heroes.length)
+                    .attr('height', height)
+    chart.append("title")
+      .html("Narrative Significance of Starcraft Characters")
     const bar = chart.selectAll('g')
-                       .data(heroes)
+                       .data(heroValues)
                      .enter().append('g')
-                       .attr('transform', (d, i) => `translate(0, ${i * barHeight})`)
-   bar.append("rect")
-     .attr("width", x)
-     .attr("height", barHeight - 1)
+                       .attr('transform', (d, i) => `translate(${i * barWidth}, 0)`)
+    bar.append("rect")
+     .attr('y', (d) => y(d))
+     .attr("width", barWidth - 1)
+     .attr("height", (d) => height - y(d))
 
-   bar.append("text")
-       .attr("x", (d) => x(d) - 3)
-       .attr("y", barHeight / 2)
-       .attr("dy", ".35em")
-       .text((d) => d.name + ' ' + d.race)
-
-    // d3.select('.data')
-    //     .data(heroes)
-    //   .enter().append('div')
+    bar.append("text")
+       .attr("x", barWidth / 6)
+       .attr("y",  (d) => y(d) + 5)
+       .attr("dy", ".75em")
+       .text((d, i) => heroes[i].name)
   },
   render () {
-    console.log(this.props.data)
     const heroes = this.props.data.heroes
     const unit = this.props.data.unit
     const loading = this.props.data.loading
@@ -54,7 +56,7 @@ export default React.createClass({
     //     </div>}
     //   </div>
     return (
-      <svg className="data">{loading ? <h1>Loading. Please wait...</h1> : this.d3()}</svg>
+      <svg className="chart">{loading ? <h1>Loading. Please wait...</h1> : this.d3()}</svg>
     )
   }
 })

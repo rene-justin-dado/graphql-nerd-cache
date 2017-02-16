@@ -22,6 +22,7 @@ const Heroes = gql`
     heroes {
       name
       race
+      charValue
     }
   }
 `
