@@ -19,8 +19,6 @@ export default React.createClass({
     const chart = d3.select('.chart')
                     .attr('width', width)
                     .attr('height', height)
-    chart.append("title")
-      .html("Narrative Significance of Starcraft Characters")
     const bar = chart.selectAll('g')
                        .data(heroes)
                      .enter().append('g')
