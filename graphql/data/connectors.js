@@ -1,11 +1,11 @@
 const config = require('../../knexfile.js')[process.env.NODE_ENV || 'development'],
       knex = require('knex')(config)
 
-export const Hero = (name) => {
-  let heroId = null
+export const Hero = (id = null, name = '') => {
   return (
     knex('hero')
       .where({ name })
+      .orWhere({ id })
       .then(namedHero => namedHero[0])
       .catch(err => console.error(err))
   )
