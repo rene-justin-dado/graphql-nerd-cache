@@ -1,7 +1,7 @@
 const typeDefinitions = `
 # An Epic hero from the Starcraft universe.
 type Hero {
-  id: Int
+  id: ID!
   # A hero's name or alias.
   name: String!
   race: String
@@ -9,7 +9,7 @@ type Hero {
 }
 # A combat unit from the tumultuous Koprulu sector.
 type Unit {
-  id: Int
+  id: ID!
   name: String!
   race: String
   weapon: String
@@ -18,13 +18,13 @@ type Unit {
 }
 # A unit's or hero's special abilities in-game.
 type Abilities {
-  id: Int!
+  id: ID!
   ability: String!
 }
 
 # You can search Heroes and Units:
 type Query {
-  hero(name: String): Hero
+  hero(id: Int, name: String): Hero
   unit(name: String): Unit
   heroes: [Hero]
 }
