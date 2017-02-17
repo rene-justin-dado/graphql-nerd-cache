@@ -22,7 +22,12 @@ graphQLServer.use(cors())
 
 graphQLServer.use('/graphql', bodyParser.json(), apolloExpress({
   schema: executableSchema,
-  context: {}
+  context: {},
+  formatError: error => ({
+    message: error.message,
+    locations: error.locations,
+    stack: error.stack
+  })
 }))
 
 graphQLServer.use('/graphiql', graphiqlExpress({
