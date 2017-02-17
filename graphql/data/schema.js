@@ -14,12 +14,15 @@ type Unit {
   race: String
   weapon: String
   armor: String
+  hp: Int
+  # Protoss shields are unique to protoss unit entries
+  shields: Int
   abilities: [Abilities]
 }
 # A unit's or hero's special abilities in-game.
 type Abilities {
   id: Int!
-  ability: String!
+  ability: String
 }
 
 # You can search Heroes and Units:

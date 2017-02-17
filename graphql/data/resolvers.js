@@ -3,7 +3,6 @@ import { Hero, Heroes, Unit } from './connectors'
 const resolvers = {
   Query: {
     hero(_, args) {
-      // console.log(args)
       return Hero(args.id || null, args.name)
     },
     unit(_, args) {

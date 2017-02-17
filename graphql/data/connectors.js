@@ -23,7 +23,7 @@ export const Unit = (name) => (
   knex('unit')
     .where({ name })
     .leftJoin('abilities', 'unit.id', '=', 'unit_id')
-    .select('unit.id', 'name', 'weapon', 'armor', 'race', 'abilities.id AS abilityId', 'ability')
+    .select('unit.id', 'name', 'race', 'weapon', 'armor', 'hp', 'shields', 'abilities.id AS abilityId', 'ability')
     .then(unitsArray => {
       let abilities = []
       if (unitsArray) {
@@ -40,4 +40,4 @@ export const Unit = (name) => (
     })
     .then(namedUnit => namedUnit)
     .catch(err => console.error(err))
-)
+  )
