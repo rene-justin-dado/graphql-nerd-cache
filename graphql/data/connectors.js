@@ -22,19 +22,21 @@ export const Heroes = () => {
 export const Unit = (name) => (
   knex('unit')
     .where({ name })
-    .join('abilities', 'unit.id', '=', 'unit_id')
-    .select()
+    .leftJoin('abilities', 'unit.id', '=', 'unit_id')
+    .select('unit.id', 'name', 'weapon', 'armor', 'race', 'abilities.id AS abilityId', 'ability')
     .then(unitsArray => {
       let abilities = []
-      unitsArray.forEach(unit => abilities.push({
-        id: unit.id, ability: unit.ability
-      }))
-      return Object.assign({
-        id: unitsArray[0].unit_id,
-        abilities: abilities
-      },
-        ...unitsArray
-      )
+      if (unitsArray) {
+        unitsArray.forEach(unit => abilities.push({
+          id: unit.abilityId, ability: unit.ability
+        }))
+        return Object.assign({
+          id: unitsArray[0].unit_id,
+          abilities: abilities
+        },
+          ...unitsArray
+        )
+      }
     })
     .then(namedUnit => namedUnit)
     .catch(err => console.error(err))
