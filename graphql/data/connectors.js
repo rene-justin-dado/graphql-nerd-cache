@@ -42,14 +42,21 @@ export const Unit = (name) => (
     .catch(err => console.error(err))
   )
 
-export const unitHasNoAbilities = () => (
-  knex('unit')
+export const Units = () => {
+  let nonAbilityUnits = null
+  return knex('unit')
     .leftJoin('abilities', 'unit.id', '=', 'unit_id')
     .select('unit.id', 'name', 'race', 'weapon', 'armor', 'hp', 'shields')
+    .orderBy('unit.id')
     .whereNull('abilities.id')
-    .then(unitsArray => unitsArray.map((unit) => Object.assign({abilities: null}, unit)))
+    .then(unitsArray => {
+      nonAbilityUnits = unitsArray.map((unit) => Object.assign({abilities: null}, unit))
+      return nonAbilityUnits
+    })
+    .then(data => unitHasAbilities())
+    .then(data => [].concat(data, nonAbilityUnits))
     .catch(err => console.error(err))
-)
+}
 
 export const unitHasAbilities = () => (
   knex('unit')
@@ -81,6 +88,3 @@ export const unitHasAbilities = () => (
     .then(data => data)
     .catch(err => console.error(err))
 )
-
-export const Units = () => {
-}
