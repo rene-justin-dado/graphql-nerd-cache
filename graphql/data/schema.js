@@ -30,6 +30,7 @@ type Query {
   hero(id: Int, name: String): Hero
   unit(name: String): Unit
   heroes: [Hero]
+  units: [Unit]
 }
 schema {
   query: Query

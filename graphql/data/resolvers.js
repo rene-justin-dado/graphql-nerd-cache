@@ -1,4 +1,4 @@
-import { Hero, Heroes, Unit } from './connectors'
+import { Hero, Heroes, Unit, Units } from './connectors'
 
 const resolvers = {
   Query: {
@@ -10,6 +10,9 @@ const resolvers = {
     },
     heroes() {
       return Heroes()
+    },
+    units() {
+      return Units()
     }
   }
 }
