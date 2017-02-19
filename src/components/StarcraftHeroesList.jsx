@@ -1,9 +1,9 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import * as d3 from 'd3'
 
 export default React.createClass({
-  propTypes: {
-    data: PropTypes.object.isRequired
+  props: {
+    data: React.PropTypes.object.isRequired
   },
   d3 () {
     let heroValues = []
