@@ -11,11 +11,14 @@ button {
   border-radius: 50%;
 }
 
-.chart rect {
+.heroesChart rect {
   fill: teal;
 }
+.unitsChart rect {
+  fill: blue;
+}
 
-.chart text {
+.heroesChart text, .unitsChart text {
   fill: white;
   font: 1rem;
   text-anchor: start;

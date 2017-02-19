@@ -16,10 +16,10 @@ export default React.createClass({
     const y = d3.scaleLinear()
                 .domain([0, d3.max(heroValues)])
                 .range([200, 0])
-    const chart = d3.select('.chart')
+    const heroesChart = d3.select('.heroesChart')
                     .attr('width', width)
                     .attr('height', height)
-    const bar = chart.selectAll('g')
+    const bar = heroesChart.selectAll('g')
                        .data(heroes)
                      .enter().append('g')
                        .attr('transform', (d, i) => `translate(${i * barWidth}, 0)`)
@@ -37,7 +37,7 @@ export default React.createClass({
   render () {
     const loading = this.props.data.loading
     return (
-      <svg className="chart">{loading ? <h1>Loading. Please wait...</h1> : this.d3()}</svg>
+      <svg className="heroesChart">{loading ? <h1>Loading. Please wait...</h1> : this.d3()}</svg>
     )
   }
 })
