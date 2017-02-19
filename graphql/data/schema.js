@@ -5,6 +5,7 @@ type Hero {
   # A hero's name or alias.
   name: String!
   race: String
+  # A hero's value to the narrative.
   charValue: Int
 }
 # A combat unit from the tumultuous Koprulu sector.
@@ -12,11 +13,15 @@ type Unit {
   id: Int
   name: String!
   race: String
+  # A unit's armament
   weapon: String
+  # A unit's means of protection
   armor: String
+  # In-Game Health
   hp: Int
   # Protoss shields are unique to protoss unit entries
   shields: Int
+  # In-Game abilities
   abilities: [Abilities]
 }
 # A unit's or hero's special abilities in-game.
