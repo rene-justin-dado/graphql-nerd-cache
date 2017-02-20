@@ -15,7 +15,7 @@ button {
   fill: teal;
 }
 .unitsChart rect {
-  fill: blue;
+  fill: #008706;
 }
 
 .heroesChart text, .unitsChart text {

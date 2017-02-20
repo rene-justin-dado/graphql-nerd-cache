@@ -16,13 +16,16 @@ export default React.createClass({
     const y = d3.scaleLinear()
                 .domain([0, d3.max(heroValues)])
                 .range([200, 0])
-    const unitChart = d3.select('.unitChart')
-                    .attr('width', width)
-                    .attr('height', height)
-    const bar = unitChart.selectAll('g')
-                       .data(heroes)
-                     .enter().append('g')
-                       .attr('transform', (d, i) => `translate(${i * barWidth}, 0)`)
+    const unitsChart = d3.select('.unitsChart')
+                         .append('svg')
+                         .attr('width', width)
+                         .attr('height', height)
+
+    const bar = unitsChart.selectAll('g')
+                          .data(heroes)
+                         .enter().append('g')
+                          .attr('transform', (d, i) => `translate(${i * barWidth}, 0)`)
+
     bar.append("rect")
      .attr('y', (d) => y(d.hp))
      .attr("width", barWidth - 1)
@@ -37,7 +40,10 @@ export default React.createClass({
   render () {
     const loading = this.props.data.loading
     return (
-      <svg className="unitChart">{loading ? <h1>Loading. Please wait...</h1> : this.d3()}</svg>
+      <div className="unitsChart">
+        {loading ? null : <h3>Units HP</h3>}
+        {loading ? <h1>Loading. Please wait...</h1> : this.d3()}
+      </div>
     )
   }
 })
