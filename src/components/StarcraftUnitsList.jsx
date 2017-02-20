@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import * as d3 from 'd3'
 
 export default React.createClass({
@@ -26,21 +27,22 @@ export default React.createClass({
                          .enter().append('g')
                           .attr('transform', (d, i) => `translate(${i * barWidth}, 0)`)
 
-    bar.append("rect")
+    bar.append('rect')
      .attr('y', (d) => y(d.hp))
-     .attr("width", barWidth - 1)
-     .attr("height", (d) => height - y(d.hp))
+     .attr('width', barWidth - 1)
+     .attr('height', (d) => height - y(d.hp))
 
-    bar.append("text")
-       .attr("x", barWidth / 6)
-       .attr("y",  (d) => y(d.hp) + 5)
-       .attr("dy", ".75em")
+    bar.append('text')
+       .attr('x', barWidth / 6)
+       .attr('y',  (d) => y(d.hp) + 5)
+       .attr('dy', '.75em')
        .text((d) => d.name)
   },
   render () {
     const loading = this.props.data.loading
     return (
-      <div className="unitsChart">
+      <div className='unitsChart'>
+        <nav><Link to='/'>Home</Link></nav>
         {loading ? null : <h3>Units HP</h3>}
         {loading ? <h1>Loading. Please wait...</h1> : this.d3()}
       </div>

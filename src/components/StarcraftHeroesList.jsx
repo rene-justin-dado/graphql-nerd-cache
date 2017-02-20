@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import * as d3 from 'd3'
 
 export default React.createClass({
@@ -69,6 +70,7 @@ export default React.createClass({
     const loading = this.props.data.loading
     return (
       <div className="heroesChart">
+        <nav><Link to='/'>Home</Link></nav>
         {loading ? <h1>Loading. Please wait...</h1> : <h3>Hero Value to Narrative</h3>}
         {loading ? <h1>Loading. Please wait...</h1> : this.d3()}
       </div>
