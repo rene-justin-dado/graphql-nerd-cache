@@ -3,7 +3,7 @@ import React from 'react'
 export default React.createClass({
   render () {
     return (
-      <div className='search'>
+      <div className='search container-fluid'>
         <div className='row'>
           <nav className='navbar col-xs-12 col-md-6'>
             <div className='container-fluid'>
@@ -29,13 +29,12 @@ export default React.createClass({
             </div>
           </nav>
           <form action='localhost:3000/graphql'
-                id='search'
-                className='col-xs-6 col-md-offset-3'
+                className='form-horizontal col-xs-10 col-xs-offset-1'
                 method='post'>
-            <fieldset className='col-xs-6 col-md-offset-3'>
+            <fieldset className='col-xs-10 col-xs-offset-1'>
               <label htmlFor='search-bar'>Search:</label>
-              <input id='search-bar' type='text'/>
-              <button form='search'>search</button>
+              <input id='search-bar' className='form-control' type='text'/>
+              <button className='form-control'>search</button>
             </fieldset>
           </form>
         </div>
