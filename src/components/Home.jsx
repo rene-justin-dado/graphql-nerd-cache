@@ -1,22 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router'
+import Search from './Search'
 
-const Home = React.createClass({
+export default React.createClass({
   render () {
     return (
-      <div>
-        <ul>
-          <li>
-            <Link to='heroes'>Heroes</Link>
-          </li>
-          <li>
-            <Link to='units'>Units</Link>
-          </li>
-        </ul>
-        <h1>Hello</h1>
+      <div className="home row">
+        <h1 className='col-xs-6 col-xs-offset-3'>Come and see what there is to see.</h1>
+        <Search />
       </div>
     )
   }
 })
-
-export default Home
