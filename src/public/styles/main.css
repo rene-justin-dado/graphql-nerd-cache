@@ -5,6 +5,14 @@
   border-radius: 50%;
 }
 
+.home nav ul {
+  display: flex;
+  justify-content: space-around;
+}
+.home nav li {
+  list-style-type: none;
+}
+
 button {
   width: 2rem;
   height: 2rem;
