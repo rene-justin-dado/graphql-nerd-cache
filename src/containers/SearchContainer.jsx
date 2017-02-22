@@ -1,9 +1,9 @@
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
 
-import StarcraftUnitsList from '../components/StarcraftUnitsList'
+import Search from '../components/Search'
 
-const Units = gql`
+const searchQuery = gql`
   {
     units {
       name, race
@@ -14,5 +14,4 @@ const Units = gql`
     }
   }
 `
-
-export default graphql(Units)(StarcraftUnitsList)
+export default graphql(searchQuery)(Search)

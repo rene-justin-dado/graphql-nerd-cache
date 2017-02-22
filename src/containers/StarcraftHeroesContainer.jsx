@@ -13,5 +13,4 @@ const Heroes = gql`
   }
 `
 
-// export default genericQuery = graphql(Generic)(StarcraftHeroesList)
 export default graphql(Heroes)(StarcraftHeroesList)
