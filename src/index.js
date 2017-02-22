@@ -9,7 +9,8 @@ import {ApolloProvider} from 'react-apollo'
 import reducers from './reducers'
 
 import App from './components/App'
-import Home from './components/Home'
+import Test from './components/Test'
+import Search from './containers/SearchContainer'
 import Heroes from './containers/StarcraftHeroesContainer'
 import Units from './containers/StarcraftUnitsContainer'
 
@@ -30,9 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <ApolloProvider store={store} client={client}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={Home} />
-          <Route path="/heroes" component={Heroes} />
-          <Route path="/units" component={Units} />
+          <IndexRoute component={Search} />
+          <Route path="heroes" component={Heroes} />
+          <Route path="units" component={Units} />
+          <Route path="test" component={Test} />
         </Route>
       </Router>
     </ApolloProvider>,
