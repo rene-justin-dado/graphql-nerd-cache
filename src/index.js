@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <IndexRoute component={Search} />
           <Route path="heroes" component={Heroes} />
           <Route path="units" component={Units} />
-          <Route path="test" component={Test} />
+          <Route path="test/:id/:name" component={Test} />
         </Route>
       </Router>
     </ApolloProvider>,
