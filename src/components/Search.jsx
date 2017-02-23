@@ -5,7 +5,12 @@ export default React.createClass({
   props: {
     data: React.PropTypes.object.isRequired
   },
+  getInitialState () {
+    return { searchQuery: '' }
+  },
   render () {
+    const idHandler = /\d/.test(this.state.searchQuery) ? this.state.searchQuery : ' '
+    const nameHandler = idHandler === ' ' ? this.state.searchQuery : 'name'
     return (
       <div className='search container-fluid'>
         <div className='row'>
@@ -37,10 +42,19 @@ export default React.createClass({
                 className='form-horizontal col-xs-10 col-xs-offset-1'>
             <fieldset className='col-xs-10 col-xs-offset-1'>
               <label htmlFor='search-bar'>Search:</label>
-              <input id='search-bar' name='query' className='form-control' type='text'/>
-              <button name='search-submit'
+              <input
+                id='search-bar'
+                name='query'
+                defaultValue=''
+                onChange={evt => this.setState({searchQuery: evt.target.value})}
+                className='form-control'
+                type='text'/>
+              <Link to={`/test/${idHandler}/${nameHandler}`}>
+                <button name='search-submit'
                       form='search'
-                      className='form-control'><Link to="/test">search</Link></button>
+                      className='form-control'>search
+                </button>
+              </Link>
             </fieldset>
           </form>
         </div>
