@@ -11,12 +11,21 @@ export const Hero = (id = null, name = '') => {
   )
 }
 
-export const Heroes = () => {
-  return (
-    knex('hero')
+export const Heroes = (faction = null) => {
+  if(!faction) {
+    return (
+      knex('hero')
       .then(heroArray => heroArray)
       .catch(err => console.error(err))
-  )
+    )
+  } else {
+    return (
+      knex('hero')
+        .where({ faction })
+        .then(heroArray => heroArray)
+        .catch(err => console.error(err))
+    )
+  }
 }
 
 export const Unit = (name) => (

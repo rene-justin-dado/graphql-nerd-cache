@@ -4,7 +4,10 @@ type Hero {
   id: Int!
   # A hero's name or alias.
   name: String!
-  race: String
+  # Relating to the 'species' a hero belongs to.
+  faction: String
+  # The sub-factions a hero is associated with.
+  subFaction: String
   # A hero's value to the narrative.
   charValue: Int
 }
@@ -12,7 +15,9 @@ type Hero {
 type Unit {
   id: Int
   name: String!
-  race: String
+  # Relating to the 'species' a unit belongs to.
+  faction: String
+  subFaction: String
   # A unit's armament
   weapon: String
   # A unit's means of protection
@@ -34,7 +39,7 @@ type Abilities {
 type Query {
   hero(id: Int, name: String): Hero
   unit(name: String): Unit
-  heroes: [Hero]
+  heroes(faction: String): [Hero]
   units: [Unit]
 }
 schema {

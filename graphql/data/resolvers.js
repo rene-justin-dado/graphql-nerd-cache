@@ -8,8 +8,8 @@ const resolvers = {
     unit(_, args) {
       return Unit(args.name)
     },
-    heroes() {
-      return Heroes()
+    heroes(_, args) {
+      return Heroes(args.faction)
     },
     units() {
       return Units()
