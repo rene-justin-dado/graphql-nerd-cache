@@ -49,7 +49,7 @@ export default React.createClass({
                 onChange={evt => this.setState({searchQuery: evt.target.value})}
                 className='form-control'
                 type='text'/>
-              <Link to={`/test/${idHandler}/${nameHandler}`}>
+              <Link to={`/results/${idHandler}/${nameHandler}`}>
                 <button name='search-submit'
                       form='search'
                       className='form-control'>search
