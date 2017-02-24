@@ -2,15 +2,15 @@ import React from 'react'
 import { Link } from 'react-router'
 
 export default React.createClass({
-  props: {
-    data: React.PropTypes.object.isRequired
-  },
   getInitialState () {
-    return { searchQuery: '' }
+    return {
+      searchQuery: '',
+      Name: '',
+      Keywords: '',
+      Description: ''
+    }
   },
   render () {
-    const idHandler = /\d/.test(this.state.searchQuery) ? this.state.searchQuery : ' '
-    const nameHandler = idHandler === ' ' ? this.state.searchQuery : 'name'
     return (
       <div className='search container-fluid'>
         <div className='row'>
@@ -18,10 +18,17 @@ export default React.createClass({
             <div className='container-fluid'>
               <div className='dropdown col-xs-4 col-xs-offset-4'>
                 <a className='dropdown-toggle nav-link' data-toggle='dropdown'><h3>Category</h3></a>
+                // Category dropdown
                 <ul className='dropdown-menu'>
-                  <li><a>Name</a></li>
-                  <li><a>Keywords</a></li>
-                  <li><a>Description</a></li>
+                  <li><a onClick={() => this.setState({Name: })}>
+                    Name
+                  </a></li>
+                  <li><a onClick={() => this.setState({Keywords})}>
+                    Keywords
+                  </a></li>
+                  <li><a onClick={() => this.setState({Description})}>
+                    Description
+                  </a></li>
                 </ul>
               </div>
             </div>
@@ -49,7 +56,7 @@ export default React.createClass({
                 onChange={evt => this.setState({searchQuery: evt.target.value})}
                 className='form-control'
                 type='text'/>
-              <Link to={`/results/${idHandler}/${nameHandler}`}>
+              <Link to={`/results/hero/${this.state.searchQuery}`}>
                 <button name='search-submit'
                       form='search'
                       className='form-control'>search
