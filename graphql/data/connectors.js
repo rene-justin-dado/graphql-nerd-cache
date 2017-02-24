@@ -32,7 +32,7 @@ export const Unit = (name) => (
   knex('unit')
     .where({ name })
     .leftJoin('abilities', 'unit.id', '=', 'unit_id')
-    .select('unit.id', 'name', 'race', 'weapon', 'armor', 'hp', 'shields', 'abilities.id AS abilityId', 'ability')
+    .select('unit.id', 'name', 'faction', 'weapon', 'armor', 'hp', 'shields', 'abilities.id AS abilityId', 'ability')
     .then(unitsArray => {
       let abilities = []
       if (unitsArray) {
@@ -55,7 +55,7 @@ export const Units = () => {
   let nonAbilityUnits = null
   return knex('unit')
     .leftJoin('abilities', 'unit.id', '=', 'unit_id')
-    .select('unit.id', 'name', 'race', 'weapon', 'armor', 'hp', 'shields')
+    .select('unit.id', 'name', 'faction', 'weapon', 'armor', 'hp', 'shields')
     .orderBy('unit.id')
     .whereNull('abilities.id')
     .then(unitsArray => {
@@ -71,7 +71,7 @@ export const unitHasAbilities = () => (
   knex('unit')
     .leftJoin('abilities', 'unit.id', '=', 'unit_id')
     .whereNotNull('abilities.ability')
-    .select('unit.id', 'name', 'race', 'weapon', 'armor', 'hp', 'shields', 'abilities.id AS abilityId', 'ability')
+    .select('unit.id', 'name', 'faction', 'weapon', 'armor', 'hp', 'shields', 'abilities.id AS abilityId', 'ability')
     .groupBy('unit.id', 'abilityId')
     .orderBy('unit.id')
     .then(unitsArray => {
