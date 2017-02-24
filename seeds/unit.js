@@ -8,7 +8,7 @@ exports.seed = function(knex, Promise) {
         knex('unit').insert({
           id: 888881,
           name: 'SCV',
-          race: 'Terran',
+          faction: 'Terran',
           weapon: 'Fusion Cutter',
           armor: 'Light Neosteel Vehicle Plating',
           hp: 45
@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
         knex('unit').insert({
           id: 888882,
           name: 'Probe',
-          race: 'Protoss',
+          faction: 'Protoss',
           weapon: 'Particle Beam',
           armor: 'Plasma Shields/Protoss Armor',
           hp: 20,
@@ -25,7 +25,7 @@ exports.seed = function(knex, Promise) {
         knex('unit').insert({
           id: 888883,
           name: 'Drone',
-          race: 'Zerg',
+          faction: 'Zerg',
           weapon: 'Claws',
           armor: 'Carapace',
           hp: 40
@@ -33,7 +33,7 @@ exports.seed = function(knex, Promise) {
         knex('unit').insert({
           id: 888884,
           name: 'Marine',
-          race: 'Terran',
+          faction: 'Terran',
           weapon: 'C-14 Impaler Gauss Rifle',
           armor: 'CMC 300/400 Combat Suit',
           hp: 45
@@ -41,7 +41,7 @@ exports.seed = function(knex, Promise) {
         knex('unit').insert({
           id: 888885,
           name: 'Zealot',
-          race: 'Protoss',
+          faction: 'Protoss',
           weapon: 'Psi Blades',
           armor: 'Plasma Shields/Protoss Armor',
           hp: 100,
@@ -50,7 +50,7 @@ exports.seed = function(knex, Promise) {
         knex('unit').insert({
           id: 888886,
           name: 'Zergling',
-          race: 'Zerg',
+          faction: 'Zerg',
           weapon: 'Claws, Fangs',
           armor: 'Light Zerg Carapace',
           hp: 35

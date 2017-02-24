@@ -8,37 +8,37 @@ exports.seed = function(knex, Promise) {
         knex('hero').insert({
           id: 999991,
           name: 'James Raynor',
-          race: 'Terran',
+          faction: 'Terran',
           charValue: 10
         }),
         knex('hero').insert({
           id: 999992,
           name: 'Matt Horner',
-          race: 'Terran',
+          faction: 'Terran',
           charValue: 7
         }),
         knex('hero').insert({
           id: 999993,
           name: 'Alarak',
-          race: 'Protoss',
+          faction: 'Protoss',
           charValue: 8
         }),
         knex('hero').insert({
           id: 999994,
           name: 'Vorazun',
-          race: 'Protoss',
+          faction: 'Protoss',
           charValue: 8
         }),
         knex('hero').insert({
           id: 999995,
           name: 'Dehaka',
-          race: 'Zerg',
+          faction: 'Zerg',
           charValue: 8
         }),
         knex('hero').insert({
           id: 999996,
           name: 'Kerrigan',
-          race: 'Zerg',
+          faction: 'Zerg',
           charValue: 10
         })
       ])
