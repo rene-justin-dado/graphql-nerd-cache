@@ -45,26 +45,6 @@ export default React.createClass({
                     .attr('lengthAdjust', 'spacing')
                     .attr('dy', '.75em')
                     .text(d => d.data.name)
-    // const y = d3.scaleLinear()
-    //             .domain([0, d3.max(heroes.map((hero) => hero.charValue))])
-    //             .range([200, 0])
-    // const heroesChart = d3.select('.heroesChart')
-    //                 .attr('width', width)
-    //                 .attr('height', height)
-    // const bar = heroesChart.selectAll('g')
-    //                    .data(heroes)
-    //                  .enter().append('g')
-    //                    .attr('transform', (d, i) => `translate(${i * barWidth}, 0)`)
-    // bar.append("rect")
-    //  .attr('y', (d) => y(d.charValue))
-    //  .attr("width", barWidth - 1)
-    //  .attr("height", (d) => height - y(d.charValue))
-    //
-    // bar.append("text")
-    //    .attr("x", barWidth / 6)
-    //    .attr("y",  (d) => y(d.charValue) + 5)
-    //    .attr("dy", ".75em")
-    //    .text((d) => d.name)
   },
   render () {
     const loading = this.props.data.loading
