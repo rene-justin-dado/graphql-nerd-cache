@@ -6,8 +6,8 @@ import StarcraftUnitsList from '../components/StarcraftUnitsList'
 const Units = gql`
   {
     units {
-      name, race
-      weapon, armor, hp, shields
+      name, faction, weapon
+      armor, hp, shields
       abilities {
         ability
       }

@@ -7,7 +7,7 @@ const Heroes = gql`
   query Heroes {
     heroes {
       name
-      race
+      faction
       charValue
     }
   }
