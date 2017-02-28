@@ -9,7 +9,6 @@ export default React.createClass({
     const Protoss = this.props.data.Protoss
     const Terran = this.props.data.Terran
     const Zerg = this.props.data.Zerg
-    // console.log([].concat(Protoss, Terran, Zerg))
   },
   render () {
     const loading = this.props.data.loading
