@@ -10,7 +10,8 @@ import reducers from './reducers'
 
 import App from './components/App'
 import Search from './components/Search'
-import Results from './components/Results'
+import PropsDelegate from './components/PropsDelegate'
+import HeroByName from './components/HeroByName'
 import ResultsContainer from './containers/ResultsContainer'
 import Heroes from './containers/StarcraftHeroesContainer'
 import Units from './containers/StarcraftUnitsContainer'
@@ -31,12 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
   render(
     <ApolloProvider store={store} client={client}>
       <Router history={hashHistory}>
-        <Route component={App}>
-          <Route path="/" component={Search} />
-          <Route path="results" component={ResultsContainer}>
-            <Route path="/hero/:name" component={Results} />
-            <Route path="heroes" component={Heroes} />
-            <Route path="units" component={Units} />
+        <Route path="/" component={App}>
+          <IndexRoute component={Search} />
+          <Route path="/results" component={ResultsContainer}>
+            <Route path="/results/:name/hero" component={HeroByName} />
+            <Route path="/results/heroes" component={Heroes} />
+            <Route path="/results/units" component={Units} />
           </Route>
         </Route>
       </Router>
