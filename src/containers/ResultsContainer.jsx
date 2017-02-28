@@ -1,6 +1,7 @@
+import React from 'react'
+import PropsDelegate from '../components/PropsDelegate'
 import {graphql} from 'react-apollo'
 import gql from 'graphql-tag'
-import Results from '../components/Results'
 
 const HeroFactions = gql`
   query HeroFactions {
@@ -18,4 +19,5 @@ const HeroFactions = gql`
     }
   }
 `
-export default graphql(HeroFactions)(Results)
+
+export default graphql(HeroFactions)(PropsDelegate)
