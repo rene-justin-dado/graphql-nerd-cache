@@ -7,18 +7,19 @@ export default React.createClass({
   },
   getInitialState () {
     return {
-      searchQuery: '',
-      byName: true,
-      byKeywords: false,
-      byDescription: false,
-      byStarcraft: false,
-      byWarcraft: false
+      searchQuery: ''
     }
   },
   handleSubmit (evt) {
-    evt.preventDefault()
-    const path = `/results/${this.state.searchQuery}/hero`
-    console.log(evt.target.elements[0].value)
+    let path
+    switch(evt.target.elements[0].value) {
+      case 'Name':
+        path = `/results/${this.state.searchQuery}/hero`
+        break
+      default:
+        path = '/'
+    }
+    this.context.router.push(path)
   },
   render () {
     const searchParams = this.state
@@ -82,7 +83,6 @@ export default React.createClass({
             </fieldset>
           </form>
         </div>
-        {this.props.children}
       </div>
     )
   }
